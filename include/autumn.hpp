@@ -13,5 +13,5 @@ struct AutumnT
 namespace Autumn
 {
 	AutumnT create( int x, int y );
-	void update( AutumnT& autumn );
+	void update( int ticks, AutumnT& autumn );
 }

@@ -12,7 +12,7 @@ namespace GameState
 		current_state_ = TitleState::create();
 	};
 
-	void update()
+	void update( int ticks )
 	{
 		if ( next_state_.type != Type::__NULL )
 		{
@@ -21,7 +21,7 @@ namespace GameState
 			Input::reset();
 		}
 
-		current_state_.update( 0, current_state_.data );
+		current_state_.update( ticks, current_state_.data );
 	};
 
 	void render()

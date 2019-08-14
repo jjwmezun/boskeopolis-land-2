@@ -30,7 +30,7 @@ namespace GameState
 	};
 
 	void init();
-	void update();
+	void update( int ticks );
 	void render();
 	void change( Object&& new_state );
 }

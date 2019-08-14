@@ -61,6 +61,11 @@ namespace Engine
         SDL_Quit();
     };
 
+    int getTicks()
+    {
+    	return SDL_GetTicks();
+    }
+
     void initKeycodes()
     {
         for ( int i = 0; i < MAX_KEY_CODES; ++i )

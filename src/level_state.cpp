@@ -4,7 +4,7 @@
 
 namespace LevelState
 {
-	void update( int, GameState::Data& data );
+	void update( int ticks, GameState::Data& data );
 	void render( int, GameState::Data& data );
 	void init( int, GameState::Data& data );
 
@@ -23,14 +23,14 @@ namespace LevelState
 		};
 	};
 
-	void update( int, GameState::Data& data )
+	void update( int ticks, GameState::Data& data )
 	{
 		auto& level = data.level;
 		if ( Input::isHeld( Input::Type::CONFIRM ) )
 		{
 			GameState::change( TitleState::create() );
 		}
-		Autumn::update( level.autumn );
+		Autumn::update( ticks, level.autumn );
 	};
 
 	void render( int, GameState::Data& data )
