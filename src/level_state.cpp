@@ -12,7 +12,7 @@ namespace LevelState
 	{
 		GameState::Data data;
 		data.level.color = { 0, 0, 255, 255 };
-		data.level.autumn_gfx = createSpriteGraphics( "autumn.png", 32, 32, 16, 25, 0, 0 );
+		data.level.autumn = Autumn::create( 32, 32 );
 		return
 		{
 			GameState::Type::LEVEL,
@@ -36,7 +36,7 @@ namespace LevelState
 	{
 		const auto& level = data.level;
 		Render::colorScreen( level.color );
-		Render::drawSprite( level.autumn_gfx );
+		Render::drawSprite( level.autumn.gfx );
 	};
 
 	void init( int, GameState::Data& data )
