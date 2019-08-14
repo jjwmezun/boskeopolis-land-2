@@ -8,6 +8,8 @@ namespace Engine
     static Input::Type keycodes[ MAX_KEY_CODES ] { Input::Type::__NULL };
     static SDL_Event event_;
 
+    void initKeycodes();
+
     bool init()
     {
         if ( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_AUDIO ) != 0 )
@@ -15,11 +17,7 @@ namespace Engine
     		SDL_Log( "Unable to initialize SDL: %s\n", SDL_GetError() );
     		return false;
         }
-        for ( int i = 0; i < MAX_KEY_CODES; ++i )
-        {
-            keycodes[ i ] = Input::Type::__NULL;
-        }
-    	keycodes[ SDL_SCANCODE_Z ] = Input::Type::CONFIRM;
+        initKeycodes();
     	return true;
     }
 
@@ -62,4 +60,13 @@ namespace Engine
     {
         SDL_Quit();
     };
+
+    void initKeycodes()
+    {
+        for ( int i = 0; i < MAX_KEY_CODES; ++i )
+        {
+            keycodes[ i ] = Input::Type::__NULL;
+        }
+    	keycodes[ SDL_SCANCODE_Z ] = Input::Type::CONFIRM;
+    }
 }
