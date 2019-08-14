@@ -5,6 +5,14 @@ namespace Input
 	enum class Type
 	{
 		CONFIRM,
+		CANCEL,
+		UP,
+		RIGHT,
+		DOWN,
+		LEFT,
+		JUMP,
+		RUN,
+		MENU,
 		__NULL
 	};
 

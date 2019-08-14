@@ -7,6 +7,7 @@ namespace Input
 	static bool held_[ MAX_INPUT_TYPES ] = { false };
 	static bool pressed_[ MAX_INPUT_TYPES ] = { false };
 	static bool released_since_reset_[ MAX_INPUT_TYPES ] = { true };
+	static bool held_for_frame_[ MAX_INPUT_TYPES ] = { false };
 
 	bool isHeld( Type input )
 	{
@@ -26,6 +27,7 @@ namespace Input
 			{
 				pressed_[ ( int )( input ) ] = true;
 			}
+			held_for_frame_[ ( int )( input ) ] = true;
 			held_[ ( int )( input ) ] = released_since_reset_[ ( int )( input ) ];
 		}
 	};
@@ -45,6 +47,11 @@ namespace Input
 		for ( int i = 0; i < MAX_INPUT_TYPES; ++i )
 		{
 			pressed_[ i ] = false;
+			if ( !held_for_frame_[ i ] )
+			{
+				released_since_reset_[ i ] = true;
+			}
+			held_for_frame_[ i ] = false;
 		}
 	}
 
@@ -52,7 +59,7 @@ namespace Input
 	{
 		for ( int i = 0; i < MAX_INPUT_TYPES; ++i )
 		{
-			held_[ i ] = pressed_[ i ] = released_since_reset_[ i ] = false;
+			held_[ i ] = pressed_[ i ] = released_since_reset_[ i ] = held_for_frame_[ i ] = false;
 		}
 	};
 }

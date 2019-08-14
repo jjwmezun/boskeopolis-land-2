@@ -4,6 +4,9 @@
 #include "input.hpp"
 #include "render.hpp"
 
+static constexpr int MILLISECONDS_PER_SECOND = 1000;
+static constexpr int FRAMERATE = 30;
+
 static int ticks_;
 
 bool main_init();
@@ -64,9 +67,9 @@ int startTicks()
 {
 	int current_ticks = Engine::getTicks() - ticks_;
 	// Maintain 60 FPS
-	/*while ( these_ticks < ( int )( 1000 / 60 ) )
+	/*while ( current_ticks < ( int )( MILLISECONDS_PER_SECOND / FRAMERATE ) )
 	{
-		these_ticks = Engine::getTicks() - ticks_;
+		current_ticks = Engine::getTicks() - ticks_;
 	};*/
 	return current_ticks;
 }

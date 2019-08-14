@@ -5,6 +5,9 @@
 struct AutumnT
 {
 	SpriteGraphics gfx;
+	double x;
+	double accx;
+	double vx;
 	double y;
 	double accy;
 	double vy;

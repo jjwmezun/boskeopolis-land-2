@@ -73,5 +73,8 @@ namespace Engine
             keycodes[ i ] = Input::Type::__NULL;
         }
     	keycodes[ SDL_SCANCODE_Z ] = Input::Type::CONFIRM;
+    	keycodes[ SDL_SCANCODE_X ] = Input::Type::RUN;
+    	keycodes[ SDL_SCANCODE_RIGHT ] = Input::Type::RIGHT;
+        keycodes[ SDL_SCANCODE_LEFT ] = Input::Type::LEFT;
     }
 }
