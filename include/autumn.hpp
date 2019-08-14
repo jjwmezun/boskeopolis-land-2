@@ -2,6 +2,15 @@
 
 #include "sprite_graphics.hpp"
 
+namespace Autumn
+{
+	enum class JumpState
+	{
+		NOT_JUMPING,
+		IS_JUMPING
+	};
+}
+
 struct AutumnT
 {
 	SpriteGraphics gfx;
@@ -11,6 +20,8 @@ struct AutumnT
 	double y;
 	double accy;
 	double vy;
+	Autumn::JumpState jump_state;
+	int jump_timer;
 };
 
 namespace Autumn

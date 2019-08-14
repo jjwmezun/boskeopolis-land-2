@@ -1,4 +1,3 @@
-#include "input.hpp"
 #include "level_state.hpp"
 #include "title_state.hpp"
 
@@ -26,10 +25,6 @@ namespace LevelState
 	void update( int ticks, GameState::Data& data )
 	{
 		auto& level = data.level;
-		if ( Input::isHeld( Input::Type::CONFIRM ) )
-		{
-			GameState::change( TitleState::create() );
-		}
 		Autumn::update( ticks, level.autumn );
 	};
 
