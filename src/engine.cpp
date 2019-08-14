@@ -2,10 +2,10 @@
 #include "input.hpp"
 #include <SDL2/SDL.h>
 
-Input::Type keycodes[ 284 ] { Input::Type::__NULL };
-
 namespace Engine
 {
+    static constexpr int MAX_KEY_CODES = 284;
+    static Input::Type keycodes[ MAX_KEY_CODES ] { Input::Type::__NULL };
     static SDL_Event event_;
 
     bool init()
@@ -14,6 +14,10 @@ namespace Engine
     	{
     		SDL_Log( "Unable to initialize SDL: %s\n", SDL_GetError() );
     		return false;
+        }
+        for ( int i = 0; i < MAX_KEY_CODES; ++i )
+        {
+            keycodes[ i ] = Input::Type::__NULL;
         }
     	keycodes[ SDL_SCANCODE_Z ] = Input::Type::CONFIRM;
     	return true;
